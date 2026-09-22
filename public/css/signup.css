@@ -1,0 +1,435 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    height:100vh;
+}
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.background{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 0;
+
+    background:linear-gradient(
+        90deg,
+        #d7d8ff 0%,
+        #d5eeff 100%
+    );
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.signup-card{
+
+    width:450px;
+
+    border:2px solid #3557df;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.card-header{
+
+    background:#f8f7f7;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+/* Title */
+
+.header-title{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#4c5de7;
+
+    font-size:30px;
+
+    font-weight:bold;
+}
+
+.header-title i{
+
+    font-size:28px;
+}
+
+/* ==========================================================
+   SUBTITLE
+========================================================== */
+
+.subtitle{
+
+    margin-top:10px;
+
+    color:#555;
+
+    font-size:15px;
+
+    font-style:italic;
+
+    line-height:1.5;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.card-body{
+
+    background: #03105e;
+
+    padding:30px;
+}
+
+/* ==========================================================
+   ERROR BOX
+========================================================== */
+
+.error-box{
+
+    background:#ffd7d7;
+
+    color:#900;
+
+    padding:12px;
+
+    border-radius:5px;
+
+    margin-bottom:20px;
+}
+
+.error-box ul{
+
+    margin-left:20px;
+}
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+label{
+
+    display:block;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-top:15px;
+
+    margin-bottom:8px;
+
+    text-transform:uppercase;
+}
+
+/* ==========================================================
+   INPUT BOX
+========================================================== */
+
+.input-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:white;
+
+    height:48px;
+
+    border-radius:5px;
+
+    padding:0 15px;
+
+    margin-bottom:5px;
+}
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:0 12px;
+
+    font-size:15px;
+}
+
+.input-box i{
+
+    color:#777;
+
+    font-size:16px;
+}
+
+/* ==========================================================
+   TOGGLE PASSWORD
+========================================================== */
+
+#togglePassword{
+
+    cursor:pointer;
+
+    color:#777;
+}
+
+#togglePassword:hover{
+
+    color:#4b5ce6;
+}
+
+/* ==========================================================
+   PASSWORD HINT
+========================================================== */
+
+.password-hint{
+
+    margin-top:10px;
+
+    color:#eef3ff;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    opacity:.9;
+
+}
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+.strength-container{
+
+    margin-top:20px;
+
+}
+
+.strength-bar{
+
+    width:100%;
+
+    height:8px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+#strengthFill{
+
+    width:0%;
+
+    height:100%;
+
+    background:#ff5b5b;
+
+    transition:.4s;
+
+}
+
+#strengthText{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   PASSWORD MATCH MESSAGE
+========================================== */
+
+.password-match{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#ffdddd;
+
+    display:none;
+}
+
+.password-match.valid{
+
+    color:#b8ffb8;
+}
+
+.password-match.invalid{
+
+    color:#ffd4d4;
+}
+
+/* ==========================================================
+   SIGN UP BUTTON
+========================================================== */
+
+.signup-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:90%;
+
+    height:50px;
+
+    margin:25px auto 0;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#4b5ce6;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.signup-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 15px rgba(0,0,0,.2);
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+hr{
+
+    margin:25px 0;
+
+    border:1px solid rgba(255,255,255,.6);
+}
+
+/* ==========================================================
+   LOGIN TEXT
+========================================================== */
+
+.new-user{
+
+    text-align:center;
+
+    color:white;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+/* ==========================================================
+   SIGN IN BUTTON
+========================================================== */
+
+.signin-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:80%;
+
+    height:50px;
+
+    margin:auto;
+
+    background:white;
+
+    color:#4b5ce6;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.signin-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 15px rgba(0,0,0,.2);
+}

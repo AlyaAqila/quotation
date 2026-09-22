@@ -1,0 +1,355 @@
+/* --- EXISTING NAVBAR STYLES --- */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 58px;
+    background-color: #f8fbff;
+    border-bottom: 1px solid #9eb0c7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1000 !important; /* Kept below drawer overlay (9999) but above content */
+    box-sizing: border-box;
+}
+
+/* 2. OFFSET BODY CONTENT SO IT DOESN'T GET COVERED */
+body {
+    /* Top padding equals navbar height (58px) so content starts right below it */
+    padding-top: 58px !important; 
+    
+    /* Bottom padding maintains space for the fixed footer bar */
+    padding-bottom: 120px !important; 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #5d6b82;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 1rem; 
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #5d6b82; 
+  transition: color 0.2s ease;
+}
+
+.nav-links a i {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.nav-links a.active {
+  color: #8b5cf6; 
+}
+
+.nav-links a:hover:not(.active) {
+  color: #1e293b;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 15px; /* Anchor for absolute positioning of dropdown */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+/* Stops internal icons/text from breaking the click target in JS */
+.profile * {
+  pointer-events: none;
+}
+
+.profile:hover {
+  background-color: #eef4fc;
+}
+
+.profile span {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+}
+
+.profile .fa-user, 
+.profile .bi-person {
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.profile .fa-chevron-down,
+.profile .bi-chevron-down {
+  font-size: 0.75rem;
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.profile.active .bi-chevron-down,
+.profile.active .fa-chevron-down {
+    transform: rotate(180deg); 
+}
+
+/* --- NEW COMPONENT STYLES --- */
+
+/* 1. Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  min-width: 170px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu button {
+  pointer-events: auto; /* Re-enable clicks inside the dropdown */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-menu button i {
+  font-size: 1rem;
+  color: #5d6b82;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f1f5f9;
+  color: #8b5cf6;
+}
+
+.dropdown-menu button:hover i {
+  color: #8b5cf6;
+}
+
+/* 2. Side Drawer (Profile Info) */
+.side-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.side-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.drawer-header button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.drawer-header button:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.drawer-body {
+  margin-top: 24px;
+}
+
+.drawer-body .avatar {
+  font-size: 4rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #8b5cf6;
+}
+
+.drawer-body p {
+  margin: 12px 0;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.drawer-body strong {
+  color: #0f172a;
+}
+
+/* Overlays sit ABOVE the bottom-bar (z-index: 1050) */
+.drawer-overlay, 
+.modal-overlay {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(5px); /* Creates the blurry background effect */
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9999 !important; /* Higher than 1050 so it covers the footer bar */
+}
+
+.drawer-overlay.active, 
+.modal-overlay.active {
+    display: block !important;
+}
+
+/* Side Drawer sits above the overlay */
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 320px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000 !important; /* Highest layer for the drawer panel */
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.side-drawer.open {
+    right: 0;
+}
+
+/* Modal Popup sits above the overlay */
+.modal-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 360px;
+    z-index: 10001 !important; /* Highest layer for the modal box */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 1.125rem;
+}
+
+.modal-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-cancel {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-confirm {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-confirm:hover {
+  background-color: #dc2626;
+}

@@ -1,0 +1,188 @@
+/* ==========================================================================
+   MODULE ITEM TABLE TEMPLATE STYLES
+   ========================================================================== */
+
+.data-group {
+    margin-top: 30px;
+}
+
+.data-group h2 {
+    margin-bottom: 10px;
+    color: #353943;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.table-card {
+    padding: 16px;
+    background: #edf6fd;
+    border-radius: 10px;
+}
+
+/* Table Structure */
+.table-card table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    background: white;
+    border: 1px solid #82888f;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.table-card thead {
+    background: #dce7ff;
+}
+
+.table-card th {
+    height: 55px;
+    padding: 7px;
+    border-right: 1px solid #c2c9d1;
+    border-bottom: 1px solid #aeb7c0;
+    color: #4c4d4e;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.table-card th:last-child {
+    border-right: none;
+}
+
+.table-card td {
+    height: 72px;
+    padding: 10px;
+    border-right: 1px solid #c2c9d1;
+    border-bottom: 1px solid #c2c9d1;
+    color: #444b55;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-card td:last-child {
+    border-right: none;
+}
+
+.table-card tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Row Animations & Hover */
+.table-card tbody tr {
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        background 0.2s ease;
+}
+
+.table-card tbody tr:hover {
+    background: #fafcff;
+}
+
+.table-card tbody tr.deleting {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* Column Width Adjustments */
+.table-card .number-column {
+    width: 48px;
+}
+
+.table-card th:nth-child(2) {
+    width: 20%;
+}
+
+.table-card th:nth-child(3) {
+    width: 16%;
+}
+
+.table-card th:nth-child(4) {
+    width: 14%;
+}
+
+.table-card th:nth-child(5) {
+    width: 13%;
+}
+
+.table-card th:nth-child(6) {
+    width: 24%;
+}
+
+.table-card th:nth-child(7) {
+    width: 13%;
+}
+
+/* Rate Badge */
+.rate-badge {
+    padding: 5px 8px;
+    border-radius: 4px;
+    background: #eeeeff;
+    color: #6865dc;
+    font-size: 11px;
+}
+
+/* Action Buttons (Edit/Delete) */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-button {
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.edit-button {
+    color: #5e6977;
+}
+
+.edit-button:hover {
+    background: #eef2f6;
+    color: #44515f;
+}
+
+.delete-button {
+    color: #ef6c74;
+}
+
+.delete-button:hover {
+    background: #fff0f1;
+}
+
+.action-button:active,
+.action-button.clicked {
+    transform: scale(0.82);
+}
+
+/* Mobile Responsive Styles for Table */
+@media (max-width: 650px) {
+    .data-group {
+        margin-top: 24px;
+    }
+
+    .table-card {
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .table-card table {
+        min-width: 850px;
+    }
+}

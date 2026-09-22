@@ -1,0 +1,367 @@
+/* General CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Container Centering */
+.history-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto 50px auto; 
+}
+
+/* Page Header Layout */
+.page-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1c53a0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 25px 0; 
+}
+
+/* Filter Card Container */
+.filter-card {
+    background: #dfeefc;
+    border-bottom: 2px solid #3b4d73;
+    padding: 20px 25px;
+    margin: 0 0 35px 0;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;  /* search a bit wider, 3 filters equal */
+    gap: 20px;
+    align-items: end;                          /* keeps all inputs on the same line */
+}
+
+.filter-card > div {
+    min-width: 0;                              /* stops content from overflowing its column */
+}
+
+.filter-card label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #26446f;
+}
+
+/* Shared style for the search box and all three dropdowns */
+.search-box input,
+.location-box select,
+.type-box select,
+.month-box select {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 25px;
+    background: #6b9ac6;
+    color: white;
+    padding: 0 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.location-box select,
+.type-box select,
+.month-box select {
+    cursor: pointer;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Tablet: 2 x 2 */
+@media (max-width: 992px) {
+    .filter-card {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Phone: stacked */
+@media (max-width: 576px) {
+    .filter-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Outer Table Container */
+.table-container {
+    width: 100%;
+    padding: 22px 12px 15px;
+    background: #eef7fd;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Table Design */
+.project-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border: 1.5px solid #343a40;
+    border-radius: 9px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+/* Table Header Styles */
+.project-table thead th {
+    height: 59px;
+    background: #dce7ff;
+    color: #363738;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #b8bec7;
+    border-bottom: 1px solid #b8bec7;
+    letter-spacing: 0.1px;
+}
+
+/* Table Body Cell Styles */
+.project-table tbody td {
+    height: 72px;
+    padding: 10px 12px;
+    color: #20242a;
+    font-size: 12px;
+    border-right: 1px solid #b8bec7;
+    border-bottom: 1px solid #b8bec7;
+    vertical-align: middle;
+}
+
+/* Remove Outer Border Lines on Last Items */
+.project-table th:last-child,
+.project-table td:last-child {
+    border-right: none;
+}
+
+.project-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Table Column Width Preferences */
+.col-number { width: 5%; }
+.col-project { width: 30%; }
+.col-project-no { width: 12%; }
+.col-client { width: 18%; }
+.col-date { width: 12%; }
+.col-action { width: 20%; }
+
+/* Column Text Alignments */
+.project-table tbody td:first-child { text-align: center; }
+.project-table tbody td:nth-child(2) { text-align: left; }
+.project-table tbody td:nth-child(3) { text-align: center; line-height: 17px; }
+.project-table tbody td:nth-child(4) { text-align: center; line-height: 17px; }
+.project-table tbody td:nth-child(5) { text-align: center; line-height: 17px; }
+
+/* Action Icons Layout */
+.action-buttons {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.action-buttons button,
+.action-buttons a {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 0 9px;
+    transition: 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.view-btn { color: #20242a; }
+.view-btn:hover { color: #5966f2; transform: scale(1.1); }
+
+.delete-btn { color: #ff3b45; }
+.delete-btn:hover { color: #d9000b; transform: scale(1.1); }
+
+/* ==========================================
+   DELETE MODAL OVERLAY & POPUP STYLES
+========================================== */
+
+/* Dark Background Overlay (Hidden by Default) */
+.modal-overlay {
+    display: none; /* Keeps modal hidden until triggered */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Class Added by JS to Show Modal */
+.modal-overlay.active { 
+    display: flex; 
+}
+
+/* White Popup Box */
+.modal-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-card h3 {
+    margin-bottom: 12px;
+    color: #1c53a0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal-card p {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+/* Modal Action Buttons */
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-cancel {
+    background: #e4e6eb;
+    color: #333333;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-confirm {
+    background: #ff3b45;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-cancel:hover { background: #d8dadf; }
+.btn-confirm:hover { background: #d9000b; }
+
+/* Responsive Layout Adjustment for Small Screens */
+@media (max-width: 900px) {
+    .table-container { overflow-x: auto; }
+    .project-table { min-width: 850px; }
+}
+
+/* ==========================================
+   EDIT PROJECT MODAL — WIDE FORM VARIANT
+========================================== */
+
+.modal-card-lg {
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.modal-card-lg .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.modal-card-lg .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-card-lg .form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #26446f;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.modal-card-lg .form-group input,
+.modal-card-lg .form-group textarea {
+    padding: 9px 12px;
+    border: 1px solid #c9d3e0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #20242a;
+    outline: none;
+    font-family: inherit;
+}
+
+.modal-card-lg .form-group input:focus,
+.modal-card-lg .form-group textarea:focus {
+    border-color: #6b9ac6;
+}
+
+.modal-card-lg .form-group input[readonly] {
+    background: #f2f4f7;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.modal-card-lg .form-group textarea {
+    resize: vertical;
+}
+
+.modal-card-lg .form-group input,
+.modal-card-lg .form-group select,
+.modal-card-lg .form-group textarea {
+    padding: 9px 12px;
+    border: 1px solid #c9d3e0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #20242a;
+    outline: none;
+    font-family: inherit;
+    background: #fff;
+}
+
+.modal-card-lg .form-group input:focus,
+.modal-card-lg .form-group select:focus,
+.modal-card-lg .form-group textarea:focus {
+    border-color: #6b9ac6;
+}
+
+.modal-card-lg .form-group select {
+    cursor: pointer;
+}
+
+.edit-btn { color: #f2a900; }
+.edit-btn:hover { color: #c98a00; transform: scale(1.1); }
+
+@media (max-width: 600px) {
+    .modal-card-lg .project-grid {
+        grid-template-columns: 1fr;
+    }
+}

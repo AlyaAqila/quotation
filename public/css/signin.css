@@ -1,0 +1,363 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    height:100vh;
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.background{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        90deg,
+        #d7d8ff 0%,
+        #d5eeff 100%
+    );
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.signin-card{
+
+    width:430px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    border:2px solid #3557df;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.card-header{
+
+    background:rgb(248, 247, 247);
+
+    padding:25px 20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+/* Icon + Title */
+.header-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    color:#4c5de7;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+.header-title i{
+
+    font-size:28px;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+.card-body{
+
+    background:#03105e;
+
+    padding:30px;
+}
+
+/* ==========================================
+   SUBTITLE
+========================================== */
+
+.subtitle{
+
+    margin-top:10px;
+
+    color:#505050;
+
+    font-size:15px;
+
+    font-style:italic;
+
+    line-height:1.5;
+}
+
+/* ==========================================
+   LABEL
+========================================== */
+
+label{
+
+    display:block;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    margin-top:13px;
+
+    text-transform:uppercase;
+}
+
+/* ==========================================
+   INPUT
+========================================== */
+
+.input-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:white;
+
+    height:48px;
+
+    border-radius:5px;
+
+    padding:0 15px;
+
+    margin-bottom:5px;
+}
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:0 12px;
+
+    font-size:15px;
+}
+
+.input-box i{
+
+    color:#777;
+
+    font-size:16px;
+}
+
+/* ==========================================
+   ERROR BOX
+========================================== */
+
+.error-box{
+
+    background:#ffd7d7;
+
+    color:#900;
+
+    padding:12px;
+
+    border-radius:5px;
+
+    margin-bottom:20px;
+}
+
+.error-box ul{
+
+    margin-left:18px;
+}
+
+/* ==========================================
+   FORGOT PASSWORD
+========================================== */
+
+.forgot-password{
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+}
+
+.forgot-password a{
+
+    color:rgb(220, 213, 255);
+
+    text-decoration:none;
+
+    font-size:14px;
+}
+
+.forgot-password a:hover{
+
+    text-decoration:underline;
+}
+
+/* ...............
+   toggle password
+   ............... */
+
+#togglePassword{
+    cursor:pointer;
+    color: #777;
+}   
+
+#togglePassword:hover{
+    color: #4b5ce6;
+}
+                 
+/* ==========================================
+   SIGN IN BUTTON
+========================================== */
+
+.signin-btn{
+
+    display:flex;
+
+    width:90%;
+
+    height:50px;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#4b5ce6;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    text-decoration: none;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.signin-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 15px rgba(0,0,0,.2);
+}
+
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+hr{
+
+    margin:25px 0;
+
+    border:1px solid rgba(255,255,255,.6);
+}
+
+/* ==========================================
+   NEW USER
+========================================== */
+
+.new-user{
+
+    text-align:center;
+
+    color:white;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+/* ==========================================
+   SIGNUP BUTTON
+========================================== */
+
+.signup-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:80%;
+
+    height:50px;
+
+    margin:auto;
+
+    background:white;
+
+    color:#4b5ce6;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.signup-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 15px rgba(0,0,0,.2);
+}
